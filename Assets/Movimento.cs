@@ -22,12 +22,26 @@ public class Movimento : MonoBehaviour
         {     
             transform.Translate(mover * Time.deltaTime * speed);            
         }
+        if (transform.position.y >= limiteB && transform.position.y <= limiteC)
+        {
+            transform.Translate(mover * Time.deltaTime * speed);
+        }
+
         if (transform.position.x > limiteD)
         {
             transform.position = new Vector3(limiteD - 0.05f, 1, 0);
         } else if (transform.position.x < limiteE)
         {
             transform.position = new Vector3(limiteE + 0.05f, 1, 0);
+        }
+
+        if (transform.position.y > limiteC)
+        {
+            transform.position = new Vector3(1, limiteC - 0.05f, 0);
+        }
+        else if (transform.position.y < limiteB)
+        {
+            transform.position = new Vector3(1, limiteB + 0.05f, 0);
         }
 
     }
